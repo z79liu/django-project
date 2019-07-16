@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Post
 # dummy data.
 posts = [
   {
@@ -16,7 +17,7 @@ posts = [
 ]
 def home(request):
   context = {
-    'posts': posts
+    'posts': Post.objects.all()
   }
   return render(request, 'blog/home.html', context)
   #context is a variable past on to the template, it has accessible: to the variable
